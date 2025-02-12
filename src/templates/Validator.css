@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+.password-validator {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.password-input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    outline: none;
+    text-align: center;
+    margin-bottom: 15px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+.password-criteria {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+/* Анимация градиентного заполнения текста */
+@keyframes gradientFill {
+    from {
+        background-size: 0% 100%;
+    }
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+.valid {
+    font-weight: bold;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 0% 100%;
+    background-position: right;
+    transition: font-weight 0.3s ease-in-out;
+    animation: gradientFill 0.8s ease-in-out forwards;
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.8), 0 0 12px rgba(39, 174, 96, 0.6);
+}
+
+.invalid {
+    color: rgba(255, 255, 255, 0.6);
+}

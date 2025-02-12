@@ -1,0 +1,50 @@
+body{
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 100%; /* Растягиваем панель на всю ширину */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: fixed; /* Фиксируем панель сверху */
+  top: 0;
+  left: 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+  height: 100vh; /* Делаем высоту контента на весь экран */
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  box-shadow: 0 4px 10px rgba(255, 138, 0, 0.4);
+  color: white;
+}
