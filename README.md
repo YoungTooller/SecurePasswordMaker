@@ -65,3 +65,11 @@ If you like the project, don't forget to **star ⭐️ the repository** on GitHu
 ## 📩 Feedback
 
 If you have any questions, suggestions, or just want to connect, feel free to reach out to the author via email or open an issue on GitHub. Your feedback is greatly appreciated!
+
+---
+
+## 📌 Changelog
+
+### v1.0.1
+- Added toast notifications
+
