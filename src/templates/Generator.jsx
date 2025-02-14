@@ -1,7 +1,8 @@
 import { useState } from "react";
-import './Generator.css'
+import PropTypes from "prop-types";
+import './Generator.css';
 
-export default function Generator() {
+export default function Generator({ showToast }) {
     const [length, setLength] = useState(12);
     const [useUppercase, setUseUppercase] = useState(true);
     const [useLowercase, setUseLowercase] = useState(true);
@@ -25,7 +26,7 @@ export default function Generator() {
         if (useSeparators) characters += separators;
 
         if (!characters) {
-            setPassword("Выберите хотя бы один тип символов");
+            showToast("Выберите хотя бы один тип символов");
             return;
         }
 
@@ -39,14 +40,14 @@ export default function Generator() {
 
     const copyPassword = async () => {
         if (password === "Пароль появится здесь" || password === "Выберите хотя бы один тип символов") {
-            alert("Сначала сгенерируйте пароль!");
+            showToast("Сначала сгенерируйте пароль!");
             return;
         }
         try {
             await navigator.clipboard.writeText(password);
-            alert("Пароль скопирован в буфер обмена!");
+            showToast("Пароль скопирован в буфер обмена!");
         } catch (err) {
-            alert("Не удалось скопировать пароль: " + err);
+            showToast("Не удалось скопировать пароль: " + err);
         }
     };
 
@@ -55,7 +56,7 @@ export default function Generator() {
             <h2>Генератор паролей</h2>
             <div className="password-length-container">
                 <label htmlFor="password-length">Длина пароля:</label>
-                <input type="number" id="password-length" min="4" max="64" value={length} onChange={(e) => setLength(Number(e.target.value))}/>
+                <input type="number" id="password-length" min="4" max="64" value={length} onChange={(e) => setLength(Number(e.target.value))} />
             </div>
             <div className="checkbox-group">
                 <label><input type="checkbox" checked={useUppercase} onChange={() => setUseUppercase(!useUppercase)} /> Прописные латинские буквы</label>
@@ -66,7 +67,12 @@ export default function Generator() {
             </div>
             <button onClick={generatePassword}>Сгенерировать</button>
             <div className="password-output" id="password-output">{password}</div>
-            <button onClick={copyPassword}>Copy</button>
+            <button onClick={copyPassword}>Скопировать</button>
         </div>
     );
 }
+
+Generator.propTypes = {
+    showToast: PropTypes.func.isRequired,
+};
+
